@@ -3,6 +3,7 @@
 while IFS=, read -r name employeeId phone
 do
 	file2line="$(grep -n $employeeId ./file2.txt | cut -f1 -d:)"
+	grep -q $employeeId ./file2.txt
 	file2existence=$?
 	if [ $file2existence == 0 ]
 	then
@@ -11,6 +12,7 @@ do
 		salaries="N/A"
 	fi
 	file3line="$(grep -n $phone ./file3.txt | cut -f1 -d:)"
+	grep -q $phone ./file3.txt
 	file3existence=$?
 	if [ $file3existence == 0 ]
 	then
@@ -20,6 +22,5 @@ do
 		email="N/A"
 		year="N/A"
 	fi
-	echo "$employeeId $name $phone $salaries $email $year" >> ./file5.txt		
+	echo "$employeeId $name $phone $salaries $email $year" >> ./file4.txt		
 done < file1.txt
-
