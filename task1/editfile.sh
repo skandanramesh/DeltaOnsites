@@ -25,4 +25,4 @@ change=$3
 awk -F, -v col="$i" -v original="$original" -v change="$change" 'BEGIN {OFS=FS} {       
   if ($col==original) $col=change;
   print $0
-}' ./file4.txt > temp.txt && mv temp.txt file5.txt
+}' ./file4.txt > temp.txt && mv temp.txt file4.txt
